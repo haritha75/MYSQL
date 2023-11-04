@@ -1,0 +1,35 @@
+By default the order is ascending
+
+USE sql_store;
+
+SELECT *
+FROM customers
+ORDER BY first_name;
+
+query:
+Get customers first name in descending order
+
+
+USE sql_store;
+
+
+SELECT *
+FROM customers
+ORDER BY first_name DESC;
+
+HW:
+
+
+USE sql_store;
+
+SELECT *
+FROM order_items
+WHERE order_id = 2
+ORDER BY (quantity*unit_price);
+
+USE sql_store;
+
+SELECT *, unit_price * quantity AS total_price -- here changing column name
+FROM order_items
+WHERE order_id = 2
+ORDER BY total_price DESC;

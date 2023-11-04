@@ -1,0 +1,18 @@
+-- using is null you can flitering the data based on the null
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE phone IS NULL;
+
+
+HW:
+
+
+-- Get the orders that are not shipped
+
+USE sql_store;
+
+SELECT *
+FROM orders
+WHERE shipped_date IS NULL; 

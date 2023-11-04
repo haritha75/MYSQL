@@ -1,0 +1,25 @@
+preference:
+
+Not
+And
+Or
+
+AND operator:
+
+
+SELECT * FROM customers
+WHERE birth_date > '1964-01-01' AND points > 1000;
+
+OR Operator:
+
+
+SELECT * FROM customers
+WHERE birth_date > '1986-01-01' OR 
+		(points > 1000 AND 
+        state <> 'CO');
+
+NOT Operator:
+
+
+SELECT * FROM customers
+WHERE NOT (points > 1000 AND state = 'VA');

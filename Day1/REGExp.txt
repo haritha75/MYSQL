@@ -1,0 +1,46 @@
+^ -> start with
+$ -> end with
+| ->  if you want use mutiple choice use or
+^a|b|c -> start with a or start with b or start with c
+
+[abc] -> only one from abc
+[a-i] -> here also only one from a to i
+
+
+Get the customers whose firsst names are ELKA Or AMBUR 
+
+
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE first_name REGEXP 'elka|ambur';
+
+Get the customers whose last name ends with EY or ON 
+
+
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'ey$|on$';
+
+Get the customers whose last name start with MY or contains SE 
+
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP '^MY|SE';
+
+
+Get the customers whose last name contain B followed by R or U
+
+
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE last_name REGEXP 'b[ru]';
+
+-- where last_name REGEXP 'br|bu';

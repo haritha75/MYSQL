@@ -1,0 +1,21 @@
+USE sql_store;
+
+
+SELECT *
+FROM customers
+-- LIMIT 3; here printing 3 records
+
+LIMIT 6, 3; -- here skipping the first 6 customers and printing next 3 customers
+
+HW:
+
+
+Get first 3 loyal customers:
+
+
+USE sql_store;
+
+SELECT *
+FROM customers
+ORDER BY points DESC -- here we are printing data in descending order
+LIMIT 3;

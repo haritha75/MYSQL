@@ -1,0 +1,29 @@
+Like:
+
+% any number of characters or digits
+_ single character
+%b -- ends with b character
+b% -- start wuth b 
+
+
+
+HW:
+
+-- Get the customers whose addresses contains   TRAIL or AVENUE.
+
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE address LIKE '%trail%' OR 
+	  address LIKE '%avenue%';
+
+
+
+-- Get the customers whose phone numbers end with 9.
+
+USE sql_store;
+
+SELECT *
+FROM customers
+WHERE phone LIKE '%9';
