@@ -1,0 +1,43 @@
+-- it is used to join the multiple table for that purpose we can use.
+
+
+query:
+
+select * FROm orders --here we are joining ordersand customers table
+JOIN customers 
+ON orders.customer_id=customers.customer_id; --here inner joins are option or use this one INNER JOIN and from orders table customer_id should be equal to customers table customer_id column
+
+query:
+
+select order_id,first_name,last_name from orders
+join customers on orders.customer_id=customers.customer_id; -- means where from orders table customer_id equal to  customer_id from customers table that time from orders table orderid snd first,last name printed
+
+
+query:
+
+select order_id,first_name,last_name,orders.customer_id FROM orders --here we are using orders.customer_id because from both tables have customer id so that shows error that's why mentioning prefix  as a table name
+JOIN customers ON orders.customer_id=customers.customer_id;
+
+
+query:
+
+use sql_store;
+
+select order_id,first_name,last_name,o.customer_id 
+FROM orders o --to reduce the repetiton for that purpose we can use elise and replaced with that mentioning name
+JOIN customers c
+ON o.customer_id=c.customer_id; 
+
+
+Exercise:
+
+-- combined both order items and products table get the data
+
+
+query:
+
+SELECT * FROM sql_store.order_items;
+
+SELECT order_id,oi.product_id,quantity,oi.unit_price from order_items oi
+JOIN products p
+ON oi.product_id = p.product_id;

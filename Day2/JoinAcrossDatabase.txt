@@ -1,0 +1,22 @@
+-- This is used to combined multiple columns and tables from  different dtabases.
+
+
+query:
+
+
+use sql_store;
+
+select * from order_items oi
+
+join sql_inventory.products p --here we donot have databse current page that's why mentioning
+ON oi.product_id = p.product_id;
+
+
+use sql_inventory;
+
+select * from sql_store.order_items oi --here we are using inventory databse so that's why we mentioning store databse and table name.
+
+join products p 
+ON oi.product_id = p.product_id;
+
+

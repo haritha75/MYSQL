@@ -1,0 +1,37 @@
+-- outer join we have two join right and left
+-- left outer join is the syntax but outer is optional 
+query:
+
+use sql_store;
+
+select 
+c.customer_id,
+c.first_name,
+o.order_id 
+
+from customers c
+LEFT JOIN orders o -- using inner join based condition it will print if you want print remaining also then use outer joins here getting all the details about customers table because you are using left join
+ON o.customer_id=c.customer_id -- whether the conditon true or not it will print remaning details for that purpose using left join
+ORDER BY c.customer_id;
+
+ 
+query:
+
+use sql_store;
+
+select 
+c.customer_id,
+c.first_name,
+o.order_id 
+from orders o
+RIGHT JOIN customers c -- using inner join based condition it will print if you want print remaining also then use outer joins it return all the customers details from the right table
+ON o.customer_id=c.customer_id -- whether the conditon true or not it will print remaning details for that purpose using left join
+ORDER BY c.customer_id;
+
+
+Assignment:
+
+SELECT * 
+FROM  products p
+LEFT JOIN order_items oi
+ON p.product_id=oi.product_id; -- here all the details products table getting because using left join.

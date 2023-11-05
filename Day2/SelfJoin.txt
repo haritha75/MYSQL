@@ -1,0 +1,9 @@
+-- to join same table for that purpose we can use that means joining a table it self
+
+query:
+
+SELECT * FROM sql_hr.employees;
+
+SELECT * From employees e
+JOIN employees m
+ON e.reports_to = m.employee_id;

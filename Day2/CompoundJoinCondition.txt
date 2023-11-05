@@ -1,0 +1,10 @@
+-- here we are combining the multiple condition in join 
+
+query:
+
+use sql_store;
+
+select * from order_items oi
+Join order_item_notes oin
+ON oi.order_id=oin.order_id
+AND oi.product_id=oin_product_id; --see here we are combining the condition using and.

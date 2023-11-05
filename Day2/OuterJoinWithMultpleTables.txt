@@ -1,0 +1,51 @@
+
+query:
+
+use sql_store;
+
+select 
+c.customer_id,
+c.first_name,
+o.order_id 
+
+from orders o
+LEFT JOIN customers c    -- using inner join based condition it will print if you want print remaining also then use outer joins
+ON o.customer_id=c.customer_id    -- whether order or not it print remaining also
+LEFT JOIN shippers sh      -- using left join whether shipper having or not but it print.
+ON o.shipper_id=sh.shipper_id
+ORDER BY c.customer_id;
+
+
+query:
+
+
+use sql_store;
+
+SELECT 
+   o.order_id,
+   o.order_date,
+   c.first_name as customer,
+   sh.name as shipper
+FROM orders o
+    JOIN customers c
+ON o.customer_id=c.customer_id
+    LEFT JOIN shippers sh -- whether shipper have or not order it will print
+ON o.shipper_id=sh.shipper_id;
+
+query:
+
+use sql_store;
+
+SELECT 
+   o.order_id,
+   o.order_date,
+   c.first_name as customer,
+   sh.name as shipper,
+   os.name as status
+FROM orders o
+    JOIN customers c
+ON o.customer_id=c.customer_id
+    LEFT JOIN shippers sh -- whether shipper have or not order it will print
+ON o.shipper_id=sh.shipper_id
+    JOIN order_statuses os
+ON o.status=os.order_status_id;    
