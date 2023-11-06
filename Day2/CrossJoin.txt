@@ -1,0 +1,33 @@
+
+Query:
+
+use sql_store;
+
+select 
+
+    c.first_name as customer,
+    p.name as product
+
+from customers c
+cross join products p -- that means every record from first table join with the all records from second table.this is the explicit syntax
+order by c.first_name;
+
+-- implicite syntax 
+
+
+use sql_store;
+
+select 
+
+    c.first_name as customer,
+    p.name as product
+
+from customers c,products p  -- here mentioning multiple tables but prefer explicit syntax
+order by c.first_name;
+
+
+Assignment:
+
+-- do a cross joinbetween shippers andproduct
+-- using the implicit syntax
+-- and then using explicit syntax

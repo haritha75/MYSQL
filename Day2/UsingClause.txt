@@ -1,0 +1,48 @@
+query:
+
+use sql_store;
+SELECT * 
+
+From orders o
+join customer c
+  -- ON o.customer_id=c.customer_id
+  using (customer_id); -- if you have the same column name then use like this it gives same result above like
+
+Query:
+
+use sql_store;
+SELECT * 
+
+From orders o
+join customer c
+  -- ON o.customer_id=c.customer_id
+  using (customer_id) -- if you have the same column name then use like this it gives same result above like
+
+LEFT JOIN shippers sh
+ -- ON o.shipper_id=sh.shipper_id
+     using (shipper_id);
+
+
+query:
+
+use sql_store;
+
+SELECT * 
+from order_items oi
+JOIN order_item_notes oin
+   -- on oi.order_id=oin.order_id AND
+   -- oi.product_id=oin.product_id
+
+   using(order_id,product_id);
+
+Assignment:
+
+
+use sql_invoicing;
+
+SELECT * from payments p
+JOIN clients c
+    -- ON p.client_id=c.client_id;
+    using(client_id)
+JOIN payment_methods pm
+     ON p.payment_method = pm.payment_method_id; -- here we have different columns names that's why using like this    
