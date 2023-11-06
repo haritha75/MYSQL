@@ -1,0 +1,16 @@
+use sql_store;
+
+insert into shippers (name)
+values ('shipper1'),
+	('shipper2'),
+        ('shipper3');
+
+
+Assignment:
+
+-- insert three rows into the products tablesuse sql_store;
+
+insert into products(name,quantity_in_stock,unit_price)
+values ('product1',10,1.95),
+       ('product1',10,1.95),
+       ('product1',10,1.95);

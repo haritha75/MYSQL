@@ -1,0 +1,16 @@
+query:
+
+delete from invoices -- if you use this one it delete all the records from the invoices table.
+
+
+query:
+
+
+use sql_invoicing;
+
+delete from invoices
+where client_id=
+                  (select * from clients               
+                   where name='Myworks');
+
+

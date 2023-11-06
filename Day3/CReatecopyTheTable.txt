@@ -1,0 +1,37 @@
+use sql_store;
+
+CREATE Table orders_archived as
+SELECT * FROM orders; -- sub query
+
+
+query:
+
+
+use sql_store;
+
+INSERT INTO orders_archived 
+SELECT * 
+FROM orders
+where order_date < '2019-01-01';
+
+Assignment:
+
+
+use sql_invoicing;
+
+CREATE Table invoices_archived as
+
+SELECT  -- sub query
+   i.invoice_id,
+   i.number,
+   c.name as client,
+   i.invoice_total,
+   i.payment_total,
+   i.invoice_date,
+   i.payment_date,
+   i.due_date
+From invoices i
+JOIN clients c
+   USING(client_id)
+where payment_date is not null;   
+
