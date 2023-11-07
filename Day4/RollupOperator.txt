@@ -1,0 +1,50 @@
+query:
+
+use sql_invoicing;
+
+select
+ client_id,
+ sum(invoice_total) as total_sales
+ from invoices 
+group by client_id with rollup -- it applycable only aggreate function   
+   
+
+query:
+
+
+use sql_invoicing;
+
+select
+    state,
+    city,
+  sum(invoice_total) as total_sales
+ from invoices 
+ join clients c using(client_id)
+group by state,city with rollup -- it applycable only aggreate function  and also we can see all the data means null values data also.
+   
+
+ Assignment:
+
+ query:
+
+
+ use sql_invoicing;
+
+select 
+   payment_method,
+   sum(amount) as total
+from payments 
+group by payment_method with rollup; -- and also we canot use elise name whenever using rollup operator
+
+
+query:
+
+use sql_invoicing;
+
+select 
+   payment_method, --if you write like pm.name as payment_method
+   sum(amount) as total
+from payments p
+join payment_methods pm
+on p.payment_method = pm.payment_method_id
+group by payment_method with rollup; -- here showing error because we are using alias name so  using direct name pm.name.

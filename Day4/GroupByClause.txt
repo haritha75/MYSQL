@@ -1,0 +1,98 @@
+use sql_invoicing;
+
+select 
+
+   sum(invoice_total) as total_sales -- here we can total sales 
+   from invoices;
+
+-- if you want see each invlice then use group by
+
+query:
+
+use sql_invoicing;
+
+select 
+
+   sum(invoice_total) as total_sales
+   from invoices
+   group by client_id -- here we can each id iinvoice total that means if you have 3 id name as 3 times then it sum the 3 id's total like that
+
+query:
+
+
+use sql_invoicing;
+
+select 
+   client_id,
+   sum(invoice_total) as total_sales
+   from invoices
+   group by client_id -- here we can each id iinvoice total
+
+query:
+
+use sql_invoicing;
+
+select 
+   client_id,
+   sum(invoice_total) as total_sales
+   from invoices
+   group by client_id -- here we can each id iinvoice total
+   order by total_sales desc
+
+
+query:
+
+
+use sql_invoicing;
+
+select 
+   client_id,
+   sum(invoice_total) as total_sales
+   from invoices
+   where invoice_date >= '2019-07-01'
+   group by client_id -- here we can each id iinvoice total
+   order by total_sales desc;
+
+
+query:
+
+
+use sql_invoicing;
+
+select
+ state,
+ city,
+ sum(invoice_total) as total_sales
+ from invoices i
+ join clients
+   using(client_id)
+   where invoice_date>= '2019-07-01'
+   group by state,city;
+
+
+Assignment:
+
+use sql_invoicing;
+
+select
+   date,
+   sum(amount) as total_payments
+   from payments
+   group by date -- here in the date column having same value then grouping the data and return it
+   order by date;  
+
+
+query:
+
+
+use sql_invoicing;
+
+select
+   date,
+   pm.name as payment_method,
+   sum(amount) as total_payments
+   from payments p
+   join payment_methods pm
+   on p.payment_method = pm.payment_method_id
+   group by date,payment_method
+   order by date;

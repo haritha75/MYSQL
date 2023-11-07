@@ -1,0 +1,54 @@
+query:
+
+
+use sql_invoicing;
+
+select 
+   client_id,
+   sum(invoice_total) as total_sales
+   from invoices
+    -- where total_sales > 500 here we filtering the data before rows and gropus
+   group by client_id -- here we can grouping same id 
+having total_sales > 500; -- it is same like where clause but after group by we can use
+
+
+query:  
+
+use sql_invoicing;
+
+select 
+   client_id,
+   sum(invoice_total) as total_sales,
+   count(*) as  number_of_invoices
+   from invoices
+    -- where total_sales > 500 here we can use any columns from the invoices table
+   group by client_id -- here we can grouping same id 
+having total_sales > 500  and number_of_invoices > 5;-- it is same like where clause but after group by we can use and also we can not use other columns names only we can use above columns
+
+
+
+Assignment:
+
+-- get the customers located in virginia who have spent money more than $100.
+
+
+
+query:
+
+
+use sql_store;
+
+select 
+   c.customer_id,
+   c.first_name,
+   c.last_name,
+   sum(oi.quantity*oi.unit_price) as total_sales
+from customers c
+join orders o using(customer_id)
+join order_items oi using(order_id)
+where state = 'VA'
+group by
+       c.customer_id,
+      c.first_name,
+      c.last_name
+having total_sales > 100;      
