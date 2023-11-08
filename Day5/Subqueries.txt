@@ -1,0 +1,27 @@
+-- find the products that are more expensive than lettuice(id=3)
+
+query:
+
+
+use sql_store;
+
+select * from products 
+where unit_price > 
+   (select unit_price -- this is the inner or sub query first it will excute after above one.
+    from products 
+    where  product_id=3);
+
+Assignment:
+
+-- in sql_hr database find employee who earn more than average
+
+query:
+
+
+use sql_hr;
+
+select * from employees
+where salary >
+     (select avg(salary)
+	  from employees
+	 );

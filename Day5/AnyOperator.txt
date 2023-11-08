@@ -1,0 +1,26 @@
+-- in operator is same like =ANY 
+
+
+-- select client with at least two invoices
+
+query:
+
+
+use sql_invoicing;
+
+select * from clients
+where client_id = ANY (
+               select client_id
+               from invoices 
+               group by client_id -- we have more type of id so if same id have then it grouping that id's and which id have >= 2 then it return that clientid if any one is euqal it will print
+               having count(*) >= 2);
+
+subquery for detail explanation:
+
+
+use sql_invoicing;
+
+select client_id,count(*)
+ from invoices
+ group by client_id
+ having count(*) >=2;

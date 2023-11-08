@@ -1,0 +1,21 @@
+-- select invoices larget than the all invoices of  client 3
+
+query:
+
+use sql_invoicing;
+select *
+from invoices 
+where invoice_total > (select max(invoice_total)
+                       from invoices
+                       where client_id=3); -- in client-d 3 which have highest one that will be return 
+
+ Query:
+
+
+ use sql_invoicing;
+select *
+from invoices 
+where invoice_total > ALL  (select invoice_total -- client_id 3 return list because we have more  id's with 3 then it return that invoice total if this all invoice toral greater that value then it will print
+                            from invoices
+                            where client_id=3); -- in client-d 3 which have highest one that will be return 
+                      

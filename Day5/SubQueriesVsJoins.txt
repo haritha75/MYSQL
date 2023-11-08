@@ -1,0 +1,40 @@
+use sql_invoicing;
+
+select * from clients
+where client_id not in (
+        select distinct client_id
+        from invoices);
+        
+select * from clients -- above one and this one same but for understand above is best
+LEFT JOIN invlices using (client_id)
+where invoice_id is null;
+
+
+Assignment:
+
+-- find the customers whos have ordered lettuice(id=3) select firstname,lastname and customerid.
+
+
+query:
+
+
+use sql_store;
+
+select *
+from customers 
+where customer_id in  
+        ( select o.customer_id
+        from order_items oi
+        join orders o using(order_id)
+        where product_id=3)
+
+ 
+ query: -- this is also same above one this is best option for understanding
+
+ use sql_store;
+
+select distinct customer_id,first_name,last_name 
+from customers c
+join orders o using(customer_id)
+join order_items oi using(order_id)
+where oi.product_id=3;
