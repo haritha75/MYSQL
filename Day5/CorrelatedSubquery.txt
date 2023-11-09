@@ -1,0 +1,32 @@
+-- relationship between main query and inner query called correlation.
+-- select employees whos salary is above average in their salary.
+
+query:
+
+
+use sql_hr;
+
+select * from employees e
+where salary > (
+           select avg(salary)
+           from employees
+           where office_id=e.office_id -- corelation between inner query and main query.
+           );
+
+
+Assignment:
+
+-- get invoices that are larger than the client's average invoice amount.
+
+
+query:
+
+
+use sql_invoicing;
+
+select * from invoices i
+where invoice_total > (
+          select avg(invoice_total)
+          from invoices
+          where client_id=i.client_id
+          );

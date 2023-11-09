@@ -1,0 +1,40 @@
+query:
+
+use sql_invoicing;
+
+select * 
+from (
+select 
+      client_id,
+	  name,
+	 (select sum(invoice_total)
+      from invoices 
+      where client_id=c.client_id) as total_sales,
+	 (select avg(invoice_total)
+      from invoices) as invoice_average,
+     (select  total_sales-invoice_average) as difference
+     
+from clients c
+)as sales_summary;       
+       
+
+Query:
+
+
+use sql_invoicing;
+select * 
+from (
+select 
+      client_id,
+	  name,
+	 (select sum(invoice_total)
+      from invoices 
+      where client_id=c.client_id) as total_sales,
+	 (select avg(invoice_total)
+      from invoices) as invoice_average,
+     (select  total_sales-invoice_average) as difference
+     
+from clients c
+)as sales_summary
+where total_sales is not null;       
+       
