@@ -1,0 +1,16 @@
+select DATE_FORMAT(now(),'%y'); -- it return current year last two digits like 19 means 2019
+select DATE_FORMAT(now(),'%Y'); -- it return current year 4 ditits like 2019
+
+select DATE_FORMAT(now(),'%m%y'); -- it return month digit and last two digit of year
+select DATE_FORMAT(now(),'%M%Y'); -- it return month name in text and full year imean 4 digits
+
+select DATE_FORMAT(now(),'%m %d %y');
+select DATE_FORMAT(now(),'%M %d %Y'); -- march 11 2019
+
+select DATE_FORMAT(now(),'%m %d %y');
+select DATE_FORMAT(now(),'%M %D %Y'); -- march 11th 2019
+
+select TIME_FORMAT(now(),'%H:%i %p') -- it return hours and minutes and last one is pm or am
+
+
+

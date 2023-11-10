@@ -1,0 +1,13 @@
+-- Round function
+
+SELECT Round(5.75) -- 6
+SLECT Round(5.75,1) -- 5.7
+
+select Truncate(7.5742,2) -- 7.57 same above one
+
+select ceiling(7.27) -- 8 it return greaterthan are qual to number
+select floor(7.57) -- 7 it return less than are equal to number
+
+select abs(-7.57) -- it return always positive
+
+select rand() -- it return random floating point number between 0 to 1 

@@ -1,0 +1,31 @@
+--String function
+
+select length('sky') -- 3
+select UPPER('sky') -- convert UPPER case
+select lower('Sky') -- convert lower case
+slect ltrim('   sky') -- it remove space from left
+select rtrime('sky    ') -- it remove right spaces
+select trim('  sky   ') -- it remove any spces from string
+select left('haritha',2) -- ha
+select right('harithayerukondu',2) -- du
+select substring('harithayerukondu',4,5) -- ithay start at 4th char and it print 5 characters.
+select substring('harithayerukondu',4) -- start with 4th char and print remaning all
+
+select locate('a',"haritha") -- 2 it searching position of that character return first occurence of that character position
+
+select locate('q',"haritha") -- 0 if does not have tha character it return 0(zero).
+
+select locate('tha',"haritha") -- 5 it start position returns
+
+select replace("harithayerukondu","haritha","raj") -- rajyerukondu means replacing mentioning string
+
+select concat("haritha","yerukondu") -- it combining the string.
+
+
+query:
+
+
+use sql_store;
+select 
+  concat(first_name,' ',last_name) as full_name
+  from customers;

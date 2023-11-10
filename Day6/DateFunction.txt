@@ -1,0 +1,24 @@
+select now() -- it return correct date and time
+
+select now(),curdate(),curtime() -- current time and date
+
+select YEAR(NOW()) -- current year
+select YEAR(NOW()),month(now()),hour(now()) -- it return current year ,month and hour here it given digits
+select dayname(now()) -- current day
+select monthname(now()) -- month name
+
+select extract(year from now()) -- it return same current year that means now function return time and date so we extracting year from that.
+
+
+assignment:
+
+
+select * from orders
+where order_date>= '2019-01-01';
+
+query:
+
+use sql_store;
+select * from orders
+-- where order_date>= '2019-01-01';
+where YEAR(order_date) = YEAR(now()); -- same above but here we are passing current year next year it return different result based on year it will cahnge

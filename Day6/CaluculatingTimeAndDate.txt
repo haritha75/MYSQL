@@ -1,0 +1,14 @@
+select DATE_ADD(now(), INTERVAL 1 DAY) -- adding one day to the current day
+
+select DATE_ADD(now(), INTERVAL 1 YEAR) -- adding 1 year to the current time and date
+
+select DATE_ADD(now(), INTERVAL -1 YEAR) -- passing negative going back
+
+select DATE_SUB(now(), INTERVAL 1 YEAR) -- without negative number going to back use sub function
+
+select DATEDIFF('2019-01-01','2019-01-05') -- it return difference  here -4
+
+select DATEDIFF('2019-01-05 9:00','2019-01-01 16:00') -- timing also pass
+
+select time_to_sec('9:00') -- it return seconds to that time
+select time_to_sec('8:00') - time_to_sec('8:02'); -- how many seconds difference it returns
