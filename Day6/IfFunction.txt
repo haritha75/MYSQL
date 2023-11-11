@@ -1,0 +1,24 @@
+query:
+
+
+use sql_store;
+
+select 
+     order_id,
+     order_date,
+     if(YEAR(order_date)=YEAR(NOW()),'active','not active') -- here we are checking current year equal to order_date year then it return active otherwise not active.
+from orders;
+
+Assignment:
+
+
+use sql_store;
+
+select
+     product_id,
+     name,
+     count(*) as orders,
+     if(count(*)>1,'many times','once') as frequency
+from products
+join order_items using(product_id)
+group by product_id,name     
