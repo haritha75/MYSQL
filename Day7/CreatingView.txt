@@ -1,0 +1,63 @@
+-- instread of using select statement you can use views it like a table format
+-- and reuse purpose use this one reduce the code 
+-- if you want result as table then create view
+
+query:
+
+
+use sql_invoicing;
+select 
+    c.client_id,
+    c.name,
+    sum(invoice_total) as total_sales
+from clients c
+join invoices i using(client_id)
+group by client_id,name;
+
+
+query:
+
+use sql_invoicing;
+create view sales_by_client as -- like this we can create view and it create new table as  a result and excute and refresh then view it like table format
+select 
+    c.client_id,
+    c.name,
+    sum(invoice_total) as total_sales
+from clients c
+join invoices i using(client_id)
+group by client_id,name;
+
+
+query:
+  -- after creating views then it create like a table  and we can use like table statemets also like this
+
+SELECT * FROM sql_invoicing.sales_by_client;
+
+select * from sales_by_client
+order by total_sales desc;
+
+query:
+
+SELECT * FROM sql_invoicing.sales_by_client;
+
+select * from sales_by_client
+join clients using(client_id)
+order by total_sales desc
+
+
+Assignemnt:
+
+
+use sql_invoicing;
+
+create view client_balance as
+select 
+    c.client_id,
+    c.name,
+    sum(invoice_total - payment_total) as balance
+from clients c
+join invoices i using(client_id)
+group by client_id,name
+    
+    
+    

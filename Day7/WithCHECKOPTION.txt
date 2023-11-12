@@ -1,0 +1,29 @@
+use sql_invoicing;
+
+update invoices_with_balance
+set payment_total = invoice_total
+where invoice_id = 2;
+
+-- some times using views for the purpose of deleting and updating that time some rows are disappreared.
+
+
+query:
+
+
+use sql_invoicing;
+
+create or replace view invoices_with_balance as
+select 
+     invoice_id,
+     number,
+     client_id,
+     invoice_total,
+     payment_total,
+     invoice_total - payment_total as balance,
+     invoice_date,
+     due_date,
+     payment_date
+from invoices
+where (invoice_total - payment_total)> 0
+with check option; -- it can prevent disaprearing the rows whenever deleting and updating the view
+     

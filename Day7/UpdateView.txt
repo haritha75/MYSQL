@@ -1,0 +1,39 @@
+-- union,distinct,group by,having and aggregate function if not in the query then use can update view use otherwise not.
+
+
+query:
+
+
+use sql_invoicing;
+create or replace view invoices_with_balance as
+select 
+     invoice_id,
+     number,
+     client_id,
+     invoice_total,
+     payment_total,
+     invoice_total - payment_total as balance,
+     invoice_date,
+     due_date,
+     payment_date
+from invoices
+where (invoice_total - payment_total)> 0;
+     
+
+query:
+
+
+SELECT * FROM sql_invoicing.invoices_with_balance;
+
+delete from invoices_with_balance -- normal query like deleting 
+where invoice_id=1;
+
+
+query:
+
+
+SELECT * FROM sql_invoicing.invoices_with_balance;
+
+update invoices_with_balance -- like normal query how to update same like
+set due_date = DATE_ADD(due_date,interval 2 day) -- adding two days to duedate where invoice_id =2;
+where invoice_id=2;
