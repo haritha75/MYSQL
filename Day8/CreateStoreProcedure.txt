@@ -1,0 +1,37 @@
+query:
+
+
+use sql_invoicing;
+
+delimiter $$  -- here we are changing delimiter to  $$ that means from  first  delimiter $$  to end delimiter $$ is one query
+create procedure get_clients() -- like this we can create store procedure
+BEGIN
+     select * from clients;
+END $$
+delimiter ;        -- again changing delimiter to ;
+
+
+query:
+
+
+use sql_invoicing;
+
+call get_clients(); -- like we can call stored procedure
+
+
+Assignment;
+
+
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create procedure get_invoices_with_balance()
+BEGIN
+    select * from invoices_with_balance 
+	where balance > 0;
+END $$
+delimiter ;    
+     

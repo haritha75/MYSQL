@@ -1,0 +1,30 @@
+-- right click stored procedured and it give some text we can write query and apply it gives some query like this
+
+
+first write :
+
+CREATE PROCEDURE `get_payment` ()
+BEGIN
+      SELECT * FROM payments; -- we can write this one and procedure name that's it it gives remaning.
+END
+
+
+-- then click apply button and my sql gives like this
+
+
+second :
+
+
+USE `sql_invoicing`;
+DROP procedure IF EXISTS `get_payment`;
+
+DELIMITER $$
+USE `sql_invoicing`$$
+CREATE PROCEDURE `get_payment` ()
+BEGIN
+      SELECT * FROM payments;
+END$$
+
+DELIMITER ;
+
+ -- that means we donot add delimiter automatically it takes in workbench if you want do manually then use delimiter.

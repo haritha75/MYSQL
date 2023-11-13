@@ -1,0 +1,12 @@
+use sql_invoicing;
+
+drop procedure get_clients -- like this we can drop procedures 
+
+
+-- and once droping procedure again we can drop that one then getting error because already droped then their is no that procedure that's why showing error
+--  so use like this
+
+
+use sql_invoicing;
+
+drop procedure if exists get_clients
