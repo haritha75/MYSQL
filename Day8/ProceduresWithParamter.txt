@@ -1,0 +1,39 @@
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create procedure get_clients_by_state(state char(2))  -- here creating procedure using paramter
+BEGIN
+     select * from clients c
+     where c.state=state; -- if passing paramter and client table statement same it return result
+END$$
+
+delimiter ;     
+
+
+calling the procedure :
+
+
+call sql_invoicing.get_clients_by_state('ca'); -- whenever calling it aska state if enter matching then it display details.
+
+
+Asssignemnt:
+
+
+use sql_invoicing;
+
+
+delimiter $$
+create procedure get_invoices_by_client(client_id int)  -- here creating procedure using paramter
+BEGIN
+     select * from invoices i
+     where i.client_id=client_id;
+END$$
+
+delimiter ; 
+
+
+call sql_invoicing.get_invoices_by_client(3);
+

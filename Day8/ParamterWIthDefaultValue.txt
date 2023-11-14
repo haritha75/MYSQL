@@ -1,0 +1,80 @@
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create procedure get_clients_by_state(state char(2))  -- here creating procedure using paramter
+BEGIN
+     if state is null then
+          set state = 'CA'; -- that means if  entering  value is null then it takes defaultly state = ca.
+     end if;
+     
+     select * from clients c
+     where c.state=state;
+END$$
+
+delimiter ;     
+
+
+
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create procedure get_clients_by_state(state char(2))  -- here creating procedure using paramter
+BEGIN
+     if state is null then
+          select * from clients; -- that means if you not enter the value or entering null value then it return all
+     else     
+          select * from clients c
+          where c.state=state;
+     end if;
+     
+     
+END$$
+
+delimiter ;     
+
+
+query:
+
+
+
+use sql_invoicing;
+
+delimiter $$
+create procedure get_clients_by_state(state char(2))  -- here creating procedure using paramter
+BEGIN
+          select * from clients c
+          where c.state= ifnull(state,c.state); -- that means if state is null then client state will be replaced that means 1=1 like this
+END$$
+
+delimiter ;     
+
+
+Assignment:
+
+
+
+use sql_invoicing;
+
+delimiter $$
+create procedure get_payments11(client_id int,payment_method_id tinyint)
+BEGIN 
+  
+  select * from payments p
+  where p.client_id = ifnull(client_id,p.client_id) and
+  p.payment_method = ifnull(payment_method_id,p.payment_method);
+  
+  
+END $$  
+delimiter ;
+  
+
+
+call sql_invoicing.get_payments11(null, null);
+call sql_invoicing.get_payments11(3, 1);
+call sql_invoicing.get_payments11(1, null);

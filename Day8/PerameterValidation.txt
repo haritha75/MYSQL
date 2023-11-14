@@ -1,0 +1,51 @@
+query:
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `make_payment`(
+
+   invoice_id int,
+   payment_amount decimal(9,2), -- 9 digit and after. two digits
+   payment_date date
+)
+BEGIN
+
+update invoices i
+set 
+   i.payment_total = payment_amount,
+   i.payment_date = payment_date
+where i.invoice_id = invoice_id;   
+
+END
+
+-- whenever calling the procedure then invoice table will be updated.
+
+
+call sql_invoicing.make_payment(2, 100, '2019-01-01');
+
+
+
+-- if you pass negative argument then display error message like this
+
+query:
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `make_payment`(
+
+   invoice_id int,
+   payment_amount decimal(9,2), -- 9 digit and after. two digits
+   payment_date date
+)
+BEGIN
+
+if payment_amount <=0 then -- like this we are validating the data
+   signal sqlstate '22003'
+      set message_text = 'invalid payment amount'; -- like exception in java a passing some messge 
+end if;      
+
+update invoices i
+set 
+   i.payment_total = payment_amount,
+   i.payment_date = payment_date
+where i.invoice_id = invoice_id;   
+
+END

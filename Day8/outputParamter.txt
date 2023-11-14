@@ -1,0 +1,35 @@
+query:
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_unpaid_invoices_for_clients`(client_id int)
+BEGIN
+   select count(*),sum(invoice_total)
+   from invoices i
+   where i.client_id=client_id and payment_total = 0;
+END
+
+
+-- whenever passing the input if you want to the out put then use like this
+query:
+
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `get_unpaid_invoices_for_clients`(
+client_id int, -- input
+out invoice_count int, -- output
+out invoice_total decimal(9,2)
+)
+BEGIN
+   select count(*),sum(invoice_total)
+   into invoice_count,invoice_total -- here count and sum names into invoiceciunt and invoicetotal
+   from invoices i
+   where i.client_id=client_id and payment_total = 0;
+END
+
+
+-- whenever entering the input it display like this
+
+
+set @invoice_count = 0; -- it set  output  values
+set @invoice_total = 0;
+call sql_invoicing.get_unpaid_invoices_for_clients(3, @invoice_count, @invoice_total); -- passing values and calling the procedure
+select @invoice_count, @invoice_total; -- reading the values
