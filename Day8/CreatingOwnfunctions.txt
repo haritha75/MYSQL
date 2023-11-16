@@ -1,0 +1,54 @@
+-- syntax are same like a stored procedure.
+query:
+
+
+CREATE FUNCTION `get_risk_factor_for_client` (client_id int)
+RETURNS INTEGER
+deterministic -- it is used for if you want same output whenever entering the same input then use this one it is a attribute
+reads sql data -- it is used for reading the data from sql
+modifies sql data -- if you want updaitng ,deleting i mean modify the data for that purpose we can use this one.
+BEGIN
+
+RETURN 1;
+END
+
+query:
+
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `get_risk_factor_for_client`(client_id int) RETURNS int
+    READS SQL DATA
+BEGIN
+
+    declare risk_factor decimal(9,2) default 0; -- this all local variables it avaiable locally only whenever end it not avaiable
+    declare invoices_total decimal(9,2);
+    declare invoices_count int;
+    
+    select count(*),sum(invoice_total)
+    into invoices_count,invoices_total -- here reading count and sum that values assign to the above variables
+    from invoices i
+    where i.client_id = client_id; -- here whatever passing the argument in that function that id equal to this id then it assign the values
+
+    set risk_factor = invoices_total/invoices_count *5;
+
+RETURN  ifnull(risk_factor,0); -- if null then it return 0 value.
+return invoices_count; -- it return how many id's have entering number.
+
+END
+
+query:
+
+
+query:
+
+
+use sql_invoicing;
+select 
+   client_id,
+   name,
+   get_risk_factor_for_client(client_id) -- here passing each client_id to the  function based on id it returns the data
+from clients;   
+   
+
+-- dropping function like this
+
+DROP function if exists get_risk_factor_for_clients;

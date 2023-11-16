@@ -1,0 +1,24 @@
+-- user or session vairables like this 
+
+set @invoice_count = 0;
+
+-- local vairables
+
+
+query:
+
+
+CREATE PROCEDURE `get_risk_factor` ()
+BEGIN
+    declare risk_factor decimal(9,2) default 0; -- this all local variables it avaiable locally only whenever end it not avaiable
+    declare invoices_total decimal(9,2);
+    declare invoices_count int;
+    
+    select count(*),sum(invoices_total)
+    into invoices_count,invoices_total -- here reading count and sum that values assign to the above variables
+    from invoices;
+
+    set risk_factor = invoices_total/invoices_count *5; -- assigning the values
+    select risk_factor; -- reading the variable
+END
+
