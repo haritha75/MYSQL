@@ -1,0 +1,52 @@
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create trigger payments_after_insert
+           after insert on payments
+           for each row
+BEGIN
+      update invoices
+      set payment_total = payment_total + new.amount
+      where invoice_id = new.invoice_id;
+      
+      insert into payments_audit -- here whenever updating the invoices after in payments_audit table inserting the data using triggers.
+      values(new.client_id,new.date,new.amount,'insert',now());
+END $$
+delimiter ;   
+
+
+
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create trigger payments_after_delete
+           after delete on payments
+           for each row
+BEGIN
+      update invoices
+      set payment_total = payment_total - old.amount
+      where invoice_id = old.invoice_id;
+      
+      insert into payments_audit -- here whenever updating the invoices after in payments_audit table inserting the data using triggers.
+      values(old.client_id,old.date,old.amount,'delete',now());
+END $$
+delimiter ;   
+
+
+query:
+
+
+insert into payments
+values (default,5,3,'2019-01-01',10,1);
+
+query:
+
+delete payments where payment_id = 11;  -- whenever delete the record from payments table then invoice table also deleted that record and in the payment audit table it will be insert into the delete record 
+
+-- auditing is nothing noting the all the inserting and deleted record.

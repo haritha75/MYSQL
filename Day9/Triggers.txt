@@ -1,0 +1,52 @@
+-- it is a block of  sql code and it automatically excuted before or after an insert,update or deleting statement.
+
+
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create trigger payments_after_insert
+           after insert on payments -- here we cannot update payment table means you can update any table but not here mentioning table and whenever insert the data to the payment then automatically invoices table updated.
+		   for each row -- it effect each row in payments table
+BEGIN
+    update invoices
+    set payment_total = payment_total+ new.amount -- whenever insert the new data to the payment table then that amount from payments table whatever we inserted that will be added to the paymenttotal  will be updated
+    where invoice_id = new.invoice_id;
+END $$
+delimiter ;
+    
+
+query:
+
+
+use sql_invoicing;
+
+insert into payments
+values (default,5,3,'2019-01-01',10,1); -- here whenever inserting the data in payments table then automatically updated invoice table.
+
+
+
+query:
+
+
+use sql_invoicing;
+
+DELIMITER $$
+create trigger payment_after_delete
+            after delete on payments
+            for each row
+BEGIN
+      update invoices
+      set payment_total = payment_total- old.amount
+      where invoice_id = old.invoice.id;
+END $$   
+DELIMITER ;   
+
+query:
+
+delete payments where payment_id = 10; -- whenever delete the row then automatically invoices table updated.
+           
+           
+           

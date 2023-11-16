@@ -1,0 +1,6 @@
+we donot have  for storing the d=trigger data like stored procedure,view and  function
+if you want see them use like this
+
+show triggers -- it shows all triggers whatever you created
+
+show triggers like 'payments%' -- like this also using.
