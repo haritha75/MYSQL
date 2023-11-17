@@ -1,0 +1,4 @@
+-- lost updates
+-- dirty reads
+-- non repeating records
+-- phantom reads

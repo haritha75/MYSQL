@@ -1,0 +1,30 @@
+query:
+
+
+use sql_store;
+
+start transaction;
+insert into orders (customer_id,order_date,status)
+values (1,'2019-01-01',1);
+insert into order_items 
+values (last_insert_id(),1,1,1); -- lastinsert id mans whatever insert at last  based on that id will taken
+commit;
+
+-- and also if you want execute line by line then lick query and click current statement excute
+-- if some times some statements executed and after some time database disconnect then that means not completed that total processs whatever statement also not update 
+if you want that use rollback and eoor checking and rollback the statemnet use rollback.
+
+
+query:
+
+
+use sql_store;
+
+start transaction;
+insert into orders (customer_id,order_date,status)
+values (1,'2019-01-01',1);
+insert into order_items 
+values (last_insert_id(),1,1,1); -- lastinsert id mans whatever insert at last  based on that id will taken
+rollback;
+
+-- this do rollback statements and do the all the changes.

@@ -1,0 +1,8 @@
+-- it is a group of sql statements that can be represeted as a signle unit of work.
+
+ACID properties;
+
+-- atomcity
+-- consistency
+-- isolation  -- only one transaction can be done at a time remaning waiting.
+-- durability -- once changes commited that changes are perminent.

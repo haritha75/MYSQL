@@ -1,0 +1,30 @@
+-- first open one connect database  and write this 
+
+query:
+
+
+use sql_store;
+
+start transaction;
+update customers
+set points = points+10
+where customer_id=1;
+commit;
+
+-- and same time open other database connection and write it
+
+query:
+
+
+use sql_store;
+
+start transaction;
+update customers
+set points = points+10
+where customer_id=1;
+commit;
+
+-- in this two databse first one databse execute line by line and not commit then go to other database and excute line by line it shows waiting because first not commited that's why
+after commit or rollback the first one then see other databse it will exucuted that means without completing the one databse other one not exucted.
+
+-- after one databse commit then commit other one and see the result row will updated in based on the both databses.
