@@ -1,0 +1,22 @@
+query:
+
+
+use sql_invoicing;
+
+delimiter $$
+alter event yearly_delete_stale_audit_rows -- same how to create event like this just change create to alter
+on schedule
+      -- AT '2019-01-01 -- if you want use only one time schedule then use this one
+      every 1 year starts ' 2019-01-01' ends '2029-01-01' -- if you want yearly then use like this and here starts to ends are optional.
+Do begin
+      delete from payments_audit
+      where action_date < NOW() - interval 1 year;
+END $$
+delimiter ;      
+
+
+
+show events like 'yearly%';
+drop event if exists yearly_delete_stale_audit_rows;
+
+alter event yearly_delete_stale_audit_rows disable; -- if you want do the change like this we can do it and like this we can disable and also enable

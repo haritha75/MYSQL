@@ -1,0 +1,29 @@
+-- it a block of sql code that gets excuted according to the scehdule.
+
+show variables;
+show vairbles like 'event%';
+
+
+query:
+
+
+show variables like 'even%';
+set global event_scheduler = OFF; -- like we can set the events.
+
+
+Query:
+
+
+use sql_invoicing;
+
+delimiter $$
+create event yearly_delete_stale_audit_rows
+on schedule
+      -- AT '2019-01-01 -- if you want use only one time schedule then use this one
+      every 1 year starts ' 2019-01-01' ends '2029-01-01' -- if you want yearly then use like this
+Do begin
+      delete from payments_audit
+      where action_date < NOW() - interval 1 year;
+END $$
+delimiter ;      
+
