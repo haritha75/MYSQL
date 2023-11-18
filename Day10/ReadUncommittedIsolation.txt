@@ -1,0 +1,23 @@
+-- first open one database and write this one
+
+
+use sql_store;
+set transaction isolation level read uncommitted;
+select points
+from customers 
+where customer_id=1;
+ -- here first and second line excute and write another databse  query like this
+
+
+ query:
+
+
+ use sql_store;
+
+start transaction;
+update customers
+set points = 20
+where customer_id=1;
+commit; --  it works default rollback 
+ -- here excute line by line without commiting then go to the first databse and execute select statement then it gives 20 that means without committing also it will read the data and also causes many problems.
+ it works like defaultly rollback in second databse query.

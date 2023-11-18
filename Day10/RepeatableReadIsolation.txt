@@ -1,0 +1,43 @@
+query:
+
+
+use sql_store;
+set transaction isolation level repeatable read;
+start transaction;
+select points from customers where customer_id=1;
+select points from customers where customer_id=1;
+
+commit;
+
+
+query:
+
+use sql_store;
+
+start transaction;
+update customers
+set points = 20
+where customer_id=1;
+commit;
+
+-- here after reading the first select stament and go to the second databse query and update points and then execute each line then go to the first databse then execute second select statement then gives same result that means result will be same  that repeated.
+
+
+query:
+
+
+use sql_store;
+set transaction isolation level repeatable read;
+start transaction;
+select * from customers where state='VA';
+
+commit;
+
+use sql_store;
+
+start transaction;
+update customers
+set state = 'VA'
+where customer_id=1; -- after commit the this query then go to the above one and then execute trasaction line and read the data then it will updated that means two state are sames , one is original one and another one is updating state.
+
+commit;

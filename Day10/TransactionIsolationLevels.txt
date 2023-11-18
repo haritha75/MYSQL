@@ -1,0 +1,14 @@
+-- it specify what data is visible to statements within a trasaction.
+
+1) read uncommited -- it allows to read uncommitted changes
+2) read commited -- default transaction and it permits only commited data or changes
+3) repeatable read -- it prevente the non-repeatable reads
+4) serializable -- it is the best one because it completely isloates the effect of one transaction from other.
+
+like this can use and set the isolation :
+
+show variables like 'transaction_isolation';
+
+set transaction isolation  level serializable;
+set session transaction isolation  level serializable;
+set global transaction isolation  level serializable;

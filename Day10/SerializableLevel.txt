@@ -1,0 +1,23 @@
+query:
+
+
+use sql_store;
+set transaction isolation level serializable;
+start transaction;
+select * from customers where state='VA';
+
+commit;
+
+query:
+
+
+use sql_store;
+
+start transaction;
+update customers
+set state = 'VA'
+where customer_id=3;
+commit;
+
+-- in serializable level one trasaction another trasaction executed that means sequencially executed and so many problems have been solved in this level. that means without completing one trasaction it will not execute another trasaction after completing trasaction and another trasaction will starts that it will waiting for the trasaction.
+ -- here in second query without comming go and read the data from first query it will be waiting because second query not yet completed and commit that one and read it will showing result.

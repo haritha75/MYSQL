@@ -1,0 +1,25 @@
+-- it happends when different trasaction cannot complete
+-- deadlock means one or more  trasactions  are waiting for one another to give up locks.
+
+query:
+
+
+use sql_store;
+
+start transaction;
+
+update customers set state = 'VA' where customer_id=1;
+update orders set status = 1 where order_id=1;
+commit;
+
+-- here execute 3 lines and  go to the second trasaction
+
+use sql_store;
+
+start transaction;
+
+update orders set status = 1 where order_id=1;
+update customers set state = 'VA' where customer_id=1;
+commit;
+
+-- execute 4 lines and it shows waiting state because in first trasaction customer table will be update but not completed it is in the process without completing again we are uodating new trasaction that's why its whos like this

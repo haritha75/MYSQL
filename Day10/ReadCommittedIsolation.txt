@@ -1,0 +1,44 @@
+query:
+
+use sql_store;
+set transaction isolation level read committed;
+select points
+from customers 
+where customer_id=1;
+ -- here first and second line excute and write another databse  query like this
+
+
+query:
+
+
+ use sql_store;
+
+start transaction;
+update customers
+set points = 20
+where customer_id=1;
+commit; 
+ -- here excute line by line without commiting then go to the first databse and execute select statement then it gives previous value only that means it does read without committing after commitng and again read the select statement then it will change.
+ 
+
+ query:
+
+
+use sql_store;
+set transaction isolation level read committed;
+start transaction;
+select points from customers where customer_id=1;
+select points from customers where customer_id=1;
+
+commit;
+
+query: -- after one select statemnt reading and change points to 30 then read second select stament in databse one then it will changes that means non-reatable happens.
+
+
+use sql_store;
+
+start transaction;
+update customers
+set points = 30
+where customer_id=1;
+commit;
