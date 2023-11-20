@@ -1,0 +1,3 @@
+bool or boolean
+ -- two values true or false. 
+ -- true means 1 and false means 00.

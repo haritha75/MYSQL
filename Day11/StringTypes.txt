@@ -1,0 +1,6 @@
+1) char(x) -- fixed length
+2) varchar(X) -- max value 65,535 character
+3) mediumtext -- 16mb
+4) longtext -- 4gb
+5) tinytext -- 255 bytes
+6) text -- 64kb

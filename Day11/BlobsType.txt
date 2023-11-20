@@ -1,0 +1,15 @@
+-- we can store large amount of binary data
+
+1) tinyblob -- 255b
+2) blob -- 65kb
+3) mediumblob -- 16mb
+4) largeblob -- 8gb
+
+
+Problems with strong the files in database:
+
+
+-- increased databse size
+-- slower backups
+-- perforamnces problems 
+-- more code to read/write images.

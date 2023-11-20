@@ -1,0 +1,5 @@
+1) string type
+2) numeric type
+3) date and time type
+4) blob type for storing  binary data
+5) spatial type for storing geographical values

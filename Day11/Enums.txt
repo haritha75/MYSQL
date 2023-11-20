@@ -1,0 +1,5 @@
+-- it is used for setting vlaues to the columns if you give some option in that option only one can set the value.
+-- go to the any table inspect and add column name like size and enter type enum('small','medium','large') and enter  and click apply button and come to the table we can see size is default is null then enter any option whatever you mention in enums and save the cahnges then see the table it will updated.
+
+enums('small,'medium','large')
+set(....) --- it allows mutilple values that means we can use multiple values inside the set 

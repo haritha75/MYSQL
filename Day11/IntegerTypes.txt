@@ -1,0 +1,6 @@
+1) tinyint -- 1b [-128,127]
+2) unsigned tinyint -- [0,255]
+3) smallint -- 2b [-32k,23k]
+4) mediumint -- 3b [-8M,8M]
+5) int -- 4b [-2B,2B]
+6) BIgint -- 8b[-9N,9N]

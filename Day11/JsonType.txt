@@ -1,0 +1,116 @@
+ -- it is a lightweight format for storing and transfering the data over the internet.
+
+
+ {
+    "key":value
+ }
+
+ -- before writing query first go to the any table insepct and add any column name and also type is json  and click apply and come ot the query write like this
+
+
+ query:
+
+
+use sql_store;
+update products
+set properties = '
+{
+   "dimentsions":[1,2,3],
+   "weight":10,
+   "manufacturer": {"name":"sony"}
+}
+'
+where product_id=1;
+
+-- see here values are updated in json format that menas it store key value pair
+
+
+use sql_store;
+
+select * from products; -- read then it will updated.
+
+
+query: -- like this we can set the values using in built method  of json 
+
+
+use sql_store;
+update products
+set properties = JSON_OBJECT(
+'weight',10,
+'dimensions',JSON_ARRAY(1,2,3),
+'manufacturer',JSON_OBJECT('name','sony')
+
+)
+where product_id=1;
+
+-- if you want extract the data from json use like this 
+
+
+use sql_store;
+
+select product_id,JSON_EXTRACT(properties,'$.weight')
+ from products
+ where product_id=1;
+
+-- like this also we can extract json values
+
+use sql_store;
+
+select product_id,properties -> '$.dimensions'
+ from products
+ where product_id=1;
+
+
+use sql_store;
+
+select product_id,properties -> '$.dimentsions[2]'
+ from products
+ where product_id=1;
+
+
+
+use sql_store;
+
+select product_id,properties -> '$.manufacturer.name' -- using -> this one sometime get quotes if you donot want use this one ->>
+ from products
+ where product_id=1;
+
+ use sql_store;
+
+select product_id,properties ->> '$.manufacturer.name'
+ from products
+ where product_id=1;
+
+
+
+use sql_store;
+
+select product_id,properties ->> '$.manufacturer.name'
+from products
+where properties ->> '$.manufacturer.name'='sony' ;
+
+
+-- if you want update the json values or insert the new one  then use like this 
+
+use sql_store;
+
+update products
+set properties = JSON_SET(
+properties,
+'$.weight',20,
+'$.age',10
+
+)
+where product_id=1;
+
+-- if you want remove json object use like this
+
+use sql_store;
+update products
+set properties = JSON_REMOVE(
+properties,
+
+'$.age'
+
+)
+where product_id=1;

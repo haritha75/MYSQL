@@ -1,0 +1,7 @@
+decimal(p,s) -- decimal(9,2) -- 123456789.23
+dec
+numeric
+fixed
+ -- this two are not stored fixed value it store approxiate value. if you want fixed value then use decimal type.
+float -- 4b
+double -- 8b 
