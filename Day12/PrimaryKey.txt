@@ -1,0 +1,2 @@
+-- it contains unique values
+-- it identifies each record uniquely in a table.

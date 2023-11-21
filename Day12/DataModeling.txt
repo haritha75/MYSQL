@@ -1,0 +1,7 @@
+-- it is a process of creating a modeling for data and storing in a database.
+-- this is the process models
+
+1) understand business requirements
+2) build a conceptual model
+3) build a logical model
+4) buld a physical model

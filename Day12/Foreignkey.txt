@@ -1,0 +1,3 @@
+-- foreign key refrences to the primary key  using this two we can see  parent child relatiohship 
+-- which table have primary key that is parent table and child table is foregin key.
+-- if foreign key set the primary key it gives compositie primary key.

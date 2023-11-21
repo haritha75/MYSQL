@@ -1,0 +1,7 @@
+relationship
+
+1) one to one
+2) one to many
+3) many to many
+
+-- it give structre for storing the data and also it show entites and their relationship very clearly

@@ -1,0 +1,12 @@
+-- it establish and epress high-level relationship between entties.
+-- it represent entities and their relationships.
+-- we need to see entities and thier relationship we have er or uml diagrams
+
+modeling tools:
+
+1) microsfot visio
+2) draw.io
+3) lucidcharts
+
+-- it is used to comminicate with the business holders  in both same place with same language example student and 
+-- it does not give structure for storing the data
