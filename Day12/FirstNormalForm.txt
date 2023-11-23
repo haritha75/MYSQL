@@ -1,0 +1,1 @@
+-- each cell should have single value and we cannot have repeated columns.

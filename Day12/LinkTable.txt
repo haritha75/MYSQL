@@ -1,0 +1,2 @@
+-- in mysql we donot have many to many relationship.
+-- if you want implment the many to many relationship we must have the link table using link table we can implement the many to many relationship

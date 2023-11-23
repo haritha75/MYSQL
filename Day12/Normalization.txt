@@ -1,0 +1,8 @@
+-- it is the process of viewing the design
+-- it is a techniquen of diving the data into multiple tables to reduce data redundancy and inconsistency and to  achieve data integrity.
+
+stages:
+
+1) 1st normalisation 
+2) 2nd normalisation
+3) 3rd normalisation

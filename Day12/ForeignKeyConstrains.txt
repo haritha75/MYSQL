@@ -1,0 +1,4 @@
+-- whenever your updating the primary key if you want update automatically in child class then you can go to that table double click and click foreikey set up 
+ then set the updation as a cascade and deletion as a no action.
+
+ -- that means whenever updating in parent then it automatically updated but deleting in parent it will reject that one.

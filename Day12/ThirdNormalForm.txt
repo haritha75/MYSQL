@@ -1,0 +1,1 @@
+-- a column in a table should not derived from other columns.
