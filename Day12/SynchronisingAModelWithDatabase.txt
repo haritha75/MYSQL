@@ -1,0 +1,2 @@
+-- it is used to if you want changes happening in the database then once again change the physical model whatever changes you want after go to the synchronized model
+ not forward engeering because we are updating the databse that's why and do the same process come to  refresh and see the updated or not .it's updated like that for updating the databse you are using the synchorized model.

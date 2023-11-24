@@ -1,0 +1,3 @@
+-- it is used to create database for that purpose we can use this one.
+-- after completing physical model that means all table creating and representing their and entities and their relation then go to database click in that forwarard engeering then it
+gives some details and set the  stored connection as default one that means local instance then click cotinue then come to the localhost refresh the page then databse created whatever we are creating the tables in physical model that all are in hte school database.

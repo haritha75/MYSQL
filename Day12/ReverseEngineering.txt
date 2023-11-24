@@ -1,0 +1,5 @@
+-- if you want to  see the databse design means physical model then go to the database click reverse engeering then it shows some details click and excute then it shows total databse design in physical model
+also shows how entties and relationship are connected .
+
+-- and also if you not understand concept then gp to the reverse engeering then see the physical model you can understand better wa also.
+-- also make change using synchronised model.
