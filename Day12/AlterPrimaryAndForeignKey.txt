@@ -1,0 +1,11 @@
+-- after creating relationship if you want change or add osmething in primary or foreign key use alter statement
+
+alter table orders
+    add primary key (order_id),
+    drop primary key,
+    drop foreign key fk_orders_customer,
+    add foreign key fk_orders_customer (customer_id)
+        references customer (customer_id)
+        on update cascade 
+		on delete no action ;
+      

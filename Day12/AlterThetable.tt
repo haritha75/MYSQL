@@ -1,0 +1,13 @@
+-- if you forgot create one column t=in the table then use alter statement
+
+alter table customer add last_name varchar(50) after first_name;
+
+-- when you write alter table statement you can make multiple changes like adding,modify column.
+
+
+alter table customer 
+      add last_name varchar(50) not null after first_name,
+      add city varchar(50) not null,
+      modify column first_name varchar(55) default '', -- here column optional if you want more understandable use it
+      drop points
+      ;
