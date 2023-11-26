@@ -1,0 +1,31 @@
+query:
+
+
+
+create database if not exists sql_store2;
+use sql_store2;
+drop table if exists customers;
+create table if not exists  customer 
+(
+ customer_id int primary key auto_increment,
+ first_name varchar(50) not null ,
+ points int not null default 0,
+ email varchar(255) not null unique
+ );
+ drop table if exists orders;
+ create table if not exists orders
+ (
+   order_id int  primary key,
+   customer_id int not null,
+   foreign key fk_orders_customer (customer_id) -- here we are creating foreign to the customer_id customer with the reference of customer table customer_id column because it is a primary key
+      references customer (customer_id)
+      on update cascade -- if you change or update any in customer it will updated automatically
+      on delete no action -- if customer table deleting in this table not effeect that means it ignore deletion for that purpose use no action
+ );
+
+
+ -- if you want delete customer it shows error because orders table depends on customer table so first delete orders and then delete customer table.
+ -- like you can use for deleting the customer table
+
+ drop table if exists customers;
+ drop table if exists orders;
