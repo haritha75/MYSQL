@@ -1,0 +1,2 @@
+-- index maintance is importent
+-- before creating the index first check existing index once. do create duplicate indexes.

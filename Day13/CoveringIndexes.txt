@@ -1,0 +1,2 @@
+-- to make the query faster for that purpose we can use covering inde.
+-- which is reuqired to the query that data will cover the index.

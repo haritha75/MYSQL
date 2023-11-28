@@ -1,0 +1,12 @@
+use sql_store;
+explain select customer_id from customers
+order by state,points; -- here we are reading ascending order
+
+show status like 'last_query_cost';
+
+
+use sql_store;
+explain select customer_id from customers
+order by state,points desc; -- here we are reading ascending order
+
+show status like 'last_query_cost'; -- if you want see the variable status then use like this
