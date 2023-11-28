@@ -1,0 +1,17 @@
+1) web/desktop appliations
+create user username identified by 'password';
+
+grant select,insert,update,delete,execute;
+on sql_store.*; // here in store databse all the tables given permisson by using this user name. we if you access other databse it does not work because we are given only one databse here.
+to username; 
+--which means which have the access only that databse works
+
+
+
+2) admin
+
+ -- here we are give permission to the all the databses and all tables also.
+grant all  
+on *.*;   
+to username;
+

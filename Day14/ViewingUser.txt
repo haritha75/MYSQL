@@ -1,0 +1,3 @@
+-- if you want user list in the server then use like this
+
+select * from mysql.server; -- it shows how many user have in the server

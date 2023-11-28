@@ -1,0 +1,11 @@
+-- if you want change the permission or remove the permission use revoke statement.
+
+grant create view 
+on sql_store.*;
+to username;
+
+-- instread using grant use revoke and to to from.
+
+revoke create view 
+on sql_store.*;
+from username;

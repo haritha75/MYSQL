@@ -1,0 +1,17 @@
+create user username@ipaddress-- this is the ip address like john@127.0.0.1 
+
+creaate user username@localhost-- it repesent current computer where we are installed mysql like john@localHost 
+
+create user username@domainname-- it is domain name now this user can connect any computer like john@codewithMosh.com
+
+
+create user john@'%.codewithmosh.com';
+
+
+create user username ---here no resttruction  john can connect any domains.
+
+
+--password set up
+
+
+create user usernameidentified by '1234';

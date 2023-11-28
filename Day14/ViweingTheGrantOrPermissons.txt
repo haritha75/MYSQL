@@ -1,0 +1,4 @@
+show grants for username;
+
+show grants;
+ -- it shows current  user permission
