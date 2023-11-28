@@ -1,0 +1,41 @@
+-- it is used to build fast and flexible search engines in applications.
+
+create fulltext index idx_title_body on posts (title,body);
+
+select * from posts
+where match(title,body) against ('react redux'); -- here first match function after against function calling in both or neither first nor second one matches that text it return.
+
+
+
+create fulltext index idx_title_body on posts (title,body);
+
+select *,match(title,body) against ('react redux') -- this is relevent score
+from posts
+where match(title,body) against ('react redux'); -- here first match function after against function calling in both or neither first nor second one matches that text it return.
+
+-- here we have two modes one is natural mode and other one is boolean mode
+
+create fulltext index idx_title_body on posts (title,body);
+
+select *,match(title,body) against ('react redux') -- this is relevent score
+from posts
+where match(title,body) against ('react -redux' in boolean mode); -- here first match function after against function calling in both or neither first nor second one matches that text it return.
+
+-- here only matching react text not redux text it return the data.
+
+
+create fulltext index idx_title_body on posts (title,body);
+
+select *,match(title,body) against ('react redux') -- this is relevent score
+from posts
+where match(title,body) against ('react -redux +form' in boolean mode); -- here first match function after against function calling in both or neither first nor second one matches that text it return.
+
+-- + form in column must contains form text that time only it returns
+
+create fulltext index idx_title_body on posts (title,body);
+
+select *,match(title,body) against ('react redux') -- this is relevent score
+from posts
+where match(title,body) against ('''handling  a form''' in boolean mode); -- here first match function after against function calling in both or neither first nor second one matches that text it return.
+
+-- if you want exact text in that column use above one.

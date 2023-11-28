@@ -1,0 +1,9 @@
+-- indexes speed up our queries.
+
+Cost of Indexes:
+
+1) increases the database
+2) slwo down the writes
+
+
+-- design indexes based on the queries not tables.

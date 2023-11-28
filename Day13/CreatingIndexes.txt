@@ -1,0 +1,18 @@
+use sql_store;
+explain select customer_id from customers where state='CA'; -- it show all the records or rows 
+-- it gives type as all then it scanning each and every row or column
+-- it takes so much time for scanning the big data or tables so use indexes wise
+
+
+create index idx_state on customers (state);
+explain select customer_id from customers where state='CA'; -- execute this one gives type as ref that means it does not scanning all the data.
+-- it is very fast.
+
+
+Assignment:
+
+
+use sql_store;
+explain select customer_id from customers where points>1000;
+
+create index idx_points on customers (points); -- here we are creating index to the points column

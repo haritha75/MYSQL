@@ -1,0 +1,28 @@
+-- it optimizing the query.
+-- one index have two more more columns and it is faster to the read the data.
+
+use sql_store;
+
+create index idx_state_points on customers(state,points); -- here we have two column but index name is same.
+explain select  customer_id from customers 
+where state = 'CA' and points > 1000;
+
+
+Drop the index like this:
+
+
+use sql_store;
+drop index idx_points on customers;
+
+
+
+use sql_store;
+create index idx_lastname_state on customers(last_name,state); -- mentionning column wise it read the data 
+explain select customer_id from customers where state = 'CA' and last_name='A%';
+
+create index idx_state_lastName on customers(state,lastName);
+explain select customer_id from customers where state = 'Ny' and last_name='A%';
+
+-- here first go to the state selecting matching state and then chceck the matching index have the starting name with A are not.
+
+-- based on the column wise we can used and also cardinality importent means unique values in the columns.

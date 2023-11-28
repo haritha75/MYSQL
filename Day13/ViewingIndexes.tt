@@ -1,0 +1,4 @@
+show indexes in customers;
+analyze table customers;
+
+show indexes in orders;
