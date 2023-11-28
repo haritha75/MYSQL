@@ -1,0 +1,29 @@
+-- caracter set means which type characters are used like utf8
+-- collation means set of rules it defines  how to compare and sort character strings.
+
+like this we are creating
+
+create database db_name
+  character set latin1 -- this is the characterset name
+
+  -- if you want change the character set already have one set then use like this 
+
+  alter database db_name
+  character set latin1
+  
+  -- if you want create character set to the table use like this
+
+  create table table_name(
+
+    )
+      character set latin1
+
+  -- if you want change characterset to the table use like this
+
+  alter table table_name
+     character set latin1
+  
+  
+  -- if you want create character set ot the column then use like this
+
+  first_name varchar(50)  character set latin1 null 

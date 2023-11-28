@@ -1,0 +1,8 @@
+-- it defines how the data stored and what features available to us.
+
+show engines -- it show all engines which are supported mysql
+
+-- if you want change storage engines to the table use like this
+
+alter table customer
+ engine = InnoDB -- this is one name of storage engine.
