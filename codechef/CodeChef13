@@ -1,0 +1,3 @@
+/* Write a query to join the table 'student' and 'course' using 'Course_id' to match both the tables and output the joined table. */
+
+select * from student as s join course  as c on s.course_id = c.course_id;
